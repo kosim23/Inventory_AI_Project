@@ -1,23 +1,27 @@
-# AI-Powered Inventory Management System 📦🚀
+# 📦 AI-Powered Inventory Management System
 
-Бу тизим чакана савдо дўконлари учун талабни башорат қилиш ва заҳираларни оптималлаштириш мақсадида яратилган.
+Бу тизим чакана савдо (retail) соҳасида заҳираларни бошқариш ва сотувларни башорат қилиш учун мўлжалланган интеллектуал ечимдир.
 
-## ✨ Асосий хусусиятлар
-* **ML Model:** XGBoost ва LightGBM асосидаги Stacking Regressor (88.52% аниқлик).
-* **Feature Engineering:** Вақт динамикаси (Lags, Rolling windows), байрамлар ва нарх ўзгариши таҳлили.
-* **Inference Engine:** Ҳар кунлик башорат ва "Safety Stock" (Хавфсиз заҳира) ҳисоби.
-* **Web Interface:** Streamlit асосидаги интерактив бошқарув панели.
-* **Automation:** Docker ва Apache Airflow орқали тўлиқ автоматик ETL жараёни (Концепт).
+## 🚀 Лойиҳа мақсади
+Бизнесдаги иккита асосий муаммони ҳал қилиш:
+1. **Stockout (Товар етишмовчилиги):** Сотувларни бой беришнинг олдини олиш.
+2. **Overstock (Ортиқча заҳира):** Омборда пул "музлаб" қолишини камайтириш.
 
-## 📊 Бизнес учун самарадорлик
-- **Stockout Risk:** 3.2% (Товар тугаб қолиш хавфи пасайтирилган).
-- **Service Level:** 95% хизмат кўрсатиш даражаси.
-- **Lost Sales Reduction:** Савдо бой берилишининг олдини олиш.
+## 📊 Асосий кўрсаткичлар (KPI)
+* **Аниқлик (Model Accuracy):** 88.52%
+* **Stockout Risk:** 3.2% (минимал даражада)
+* **Service Level:** 95% хизмат кўрсатиш кафолати
 
-## 🚀 Ишга тушириш
-1. Кутубхоналарни ўрнатиш: `pip install -r requirements.txt`
-2. Веб-интерфейсни очиш: `streamlit run web_app/app.py`
-3. Docker орқали ишга тушириш (Инфратузилма): `docker-compose up --build`
+## 🛠 Технологик стек
+- **ML Моделлар:** XGBoost, LightGBM (Stacking Regressor)
+- **Dashboard:** Streamlit (Интерактив бошқарув панели)
+- **Containerization:** Docker & Docker Compose
+- **Data Engineering:** Python, Pandas, Scikit-learn
 
----
-*Developed as a Data Engineering Solution for Retail Business.*
+## 💻 Ишга тушириш
+1. Лойиҳани клонлаш: `git clone https://github.com/kosim23/Inventory_AI_Project.git`
+2. Кутубхоналарни ўрнатиш: `pip install -r requirements.txt`
+3. Веб-интерфейсни юргизиш: `streamlit run web_app/app.py`
+
+## 📈 Бизнес учун қиймат (Value)
+Тизим шунчаки график чизмайди, балки ҳар бир товар учун **"Order Recommendation" (Қанча сотиб олиш керак?)** деган аниқ сонни тавсия қилади. Бу эса харид бўлими иш самарадорлигини 5 бараварга оширади.
