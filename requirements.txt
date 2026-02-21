@@ -1,0 +1,10 @@
+pandas
+numpy
+scikit-learn
+xgboost
+lightgbm
+joblib
+streamlit
+apache-airflow
+psycopg2-binary
+sqlalchemy

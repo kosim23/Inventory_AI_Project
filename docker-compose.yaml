@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  # 1. Airflow учун маълумотлар базаси
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=airflow
+      - POSTGRES_PASSWORD=airflow
+      - POSTGRES_DB=airflow
+
+  # 2. Airflow веб-интерфейси ва Scheduler
+  airflow:
+    build: .
+    depends_on:
+      - postgres
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./scripts:/opt/airflow/scripts
+      - ./models:/opt/airflow/models
+      - ./data:/opt/airflow/data
+    environment:
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres/airflow
+    command: >
+      bash -c "airflow db init && 
+               airflow users create --username admin --firstname admin --lastname admin --role Admin --email admin@example.com --password admin &&
+               airflow scheduler & airflow webserver"
+    ports:
+      - "8080:8080" # Airflow порти
+
+  # 3. Бизнинг Streamlit интерфейсимиз
+  streamlit:
+    build: .
+    ports:
+      - "8501:8501"
+    command: streamlit run web_app/app.py
